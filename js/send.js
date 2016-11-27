@@ -1,15 +1,18 @@
 var socket = io();
 var my_id;
+var msg =null;
 $('form').submit(function(){
   socket.emit('get info');
+  var sent_time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
+  msg = new Message($('#m').val(),$('#n').val(),sent_time, null);
+  $('#m').val('');
   //socket.emit('chat message', $('#m').val());
   //$('#m').val('');
   return false;
 });
 socket.on('get info', function(current_id){
-  if($('#m').val()!==''){
-  var sent_time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
-  var msg = new Message($('#m').val(),$('#n').val(),sent_time, current_id);
+  if($('#n').val() == msg.usr){
+  msg.usr_id = current_id;
   $('#m').val('');
   my_id = current_id;
   console.log(my_id)
@@ -19,8 +22,9 @@ socket.on('get info', function(current_id){
 socket.on('chat message', function(message){
   //var sent_time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
   //var message = new Message(msg,$('#n').val(),sent_time);
+  if(msg !== null){
   console.log(message.usr);
-  if($('#n').val() == message.usr_id){
+  if($('#n').val() == message.usr){
     var html_message = '<li class="mar-btm">\
       <div class="media-right">\
         <img src="http://bootdey.com/img/Content/avatar/avatar2.png" class="img-circle img-sm" alt="Profile Picture">\
@@ -53,4 +57,6 @@ socket.on('chat message', function(message){
       </li> ';
   }
   $('#messages').append($(html_message));
+  msg = null;
+  }
 });
