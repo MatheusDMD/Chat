@@ -1,0 +1,50 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="styles/test.css" rel="stylesheet">
+<link href="styles/menu.css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<div class="container">
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+      <div id="myDropdown" class=dropdown-content>
+          <div class="panel">
+      			<h3 class="panel-title">ChatInsper</h3>
+            <input id="n" placeholder="Name"></input>
+      		</div>
+
+      		<!--Widget body-->
+      		<div id="demo-chat-body" class="collapse in">
+      			<div class="nano has-scrollbar" style="height:380px">
+      				<div class="nano-content pad-all" tabindex="0" style="right: -17px;">
+      					<ul class="list-unstyled media-block" id="messages"></ul>
+      				</div>
+      			<div class="nano-pane"><div class="nano-slider" style="height: 141px; transform: translate(0px, 0px);"></div></div></div>
+
+      			<!--Widget footer-->
+            <form id="send" action="">
+        			<div class="panel-footer">
+        				<div class="row">
+        					<div class="col-xs-9">
+                    <input id="m" autocomplete="off" type="text" placeholder="Enter your text" class="form-control chat-input"/>
+        					</div>
+        					<div class="col-xs-3">
+        						<button class="btn btn-primary btn-block" type="submit">Send</button>
+        					</div>
+        				</div>
+        			</div>
+            </form>
+      		</div>
+      	</div>
+      </div>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/send.js"></script>
+</div>
