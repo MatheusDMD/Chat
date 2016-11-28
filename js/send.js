@@ -1,30 +1,17 @@
 var socket = io();
+var isConnected = false;
 var my_id;
-var msg =null;
 $('form').submit(function(){
-  socket.emit('get info');
   var sent_time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
-  msg = new Message($('#m').val(),$('#n').val(),sent_time, null);
+  msg = new Message($('#m').val(),$('#n').val(),sent_time, my_id);
   $('#m').val('');
+  socket.emit('user message', msg);
   //socket.emit('chat message', $('#m').val());
   //$('#m').val('');
   return false;
 });
-socket.on('get info', function(current_id){
-  if($('#n').val() == msg.usr){
-  msg.usr_id = current_id;
-  $('#m').val('');
-  my_id = current_id;
-  console.log(my_id)
-  socket.emit('chat message', msg);
-  }
-});
-socket.on('chat message', function(message){
-  //var sent_time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: "numeric", minute: "numeric"});
-  //var message = new Message(msg,$('#n').val(),sent_time);
-  if(msg !== null){
-  console.log(message.usr);
-  if($('#n').val() == message.usr){
+socket.on('user message back', function(message){
+  if(message.usr == $('#n').val()){
     var html_message = '<li class="mar-btm">\
       <div class="media-right">\
         <img src="http://bootdey.com/img/Content/avatar/avatar2.png" class="img-circle img-sm" alt="Profile Picture">\
@@ -40,7 +27,11 @@ socket.on('chat message', function(message){
       </div>\
     </li>';
   }
-  else{
+  $('#messages').append($(html_message));
+});
+socket.on('admin message recieved', function(result){
+    message = new Message(result[0],result[1],result[2],result[3]);
+    if(message.usr_id == my_id){
     var html_message ='<li class="mar-btm">\
       <div class="media-left"> \
         <img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle img-sm" alt="Profile Picture">\
@@ -55,8 +46,13 @@ socket.on('chat message', function(message){
         </div>\
       </div>\
       </li> ';
-  }
   $('#messages').append($(html_message));
-  msg = null;
+  }
+});
+socket.on('connection stablished', function(id){
+  if(!isConnected){
+    my_id = id;
+    isConnected = true;
+    console.log(my_id)
   }
 });
