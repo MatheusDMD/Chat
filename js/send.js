@@ -12,8 +12,9 @@ $('form').submit(function(){
 });
 socket.on('user message back', function(message){
   if(message.usr == $('#n').val()){
-    var html_message = '<li class="mar-btm">\
-      <div class="media-right">\
+    var html_message = document.createElement('li');
+    html_message.className = "mar-btm";
+    html_message.innerHTML = '<div class="media-right">\
         <img src="http://bootdey.com/img/Content/avatar/avatar2.png" class="img-circle img-sm" alt="Profile Picture">\
       </div>\
       <div class="media-body pad-hor speech-right">\
@@ -24,16 +25,18 @@ socket.on('user message back', function(message){
             <i class="fa fa-clock-o fa-fw"></i> '+message.time+'\
           </p>\
         </div>\
-      </div>\
-    </li>';
+      </div>';
   }
   $('#messages').append($(html_message));
+  document.getElementById('messages-div').scrollTop = html_message.offsetHeight + html_message.offsetTop;
 });
 socket.on('admin message recieved', function(result){
     message = new Message(result[0],result[1],result[2],result[3]);
     if(message.usr_id == my_id){
-    var html_message ='<li class="mar-btm">\
-      <div class="media-left"> \
+
+    var html_message = document.createElement('li');
+    html_message.className = "mar-btm";
+    html_message.innerHTML = '<div class="media-left"> \
         <img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle img-sm" alt="Profile Picture">\
       </div>\
       <div class="media-body pad-hor">\
@@ -44,9 +47,9 @@ socket.on('admin message recieved', function(result){
             <i class="fa fa-clock-o fa-fw"></i> '+ message.time +'\
           </p>\
         </div>\
-      </div>\
-      </li> ';
+      </div>';
   $('#messages').append($(html_message));
+  document.getElementById('messages-div').scrollTop = html_message.offsetHeight + html_message.offsetTop;
   }
 });
 socket.on('connection stablished', function(id){
