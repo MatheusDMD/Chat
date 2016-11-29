@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.use("/styles", express.static(__dirname + '/styles'));
 app.use("/js", express.static(__dirname + '/js'));
-
+app.use("/images", express.static(__dirname + '/images'));
 //Chat
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/chat.html');
@@ -43,6 +43,7 @@ io.on('connection', function(socket){
   console.log(users_online);
   io.emit('connection stablished', user_id);
   io.emit('connected users', users_online);
+
   socket.on('disconnect', function(){
     users_online.splice(users_online.indexOf(socket.id), 1);
     io.emit('connected users', users_online);
