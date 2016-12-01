@@ -20,12 +20,7 @@ io.on('connection', function(socket){
   socket.on('user message', function(msg){
     if(user_chats[msg.usr_id][1] == 0){
       user_chats[msg.usr_id][0] = msg.usr;
-      user_chats[msg.usr_id].pop
-      var index = users_online.indexOf(msg.usr_id);
-      if (index !== -1) {
-          users_online[index] = msg.usr;
-        }
-    }
+      user_chats[msg.usr_id].pop();
     user_chats[user_id].push(msg.usr + ": " + msg.msg);
     io.emit('user message back', msg);
     io.emit('chat', user_chats[msg.usr_id]);
