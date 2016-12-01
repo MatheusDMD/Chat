@@ -21,7 +21,7 @@ io.on('connection', function(socket){
     if(user_chats[msg.usr_id][1] == 0){
       user_chats[msg.usr_id][0] = msg.usr;
       user_chats[msg.usr_id].pop
-      var index = items.indexOf(msg.usr_id);
+      var index = users_online.indexOf(msg.usr_id);
       if (index !== -1) {
           users_online[index] = msg.usr;
         }
