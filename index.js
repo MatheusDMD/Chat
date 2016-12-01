@@ -18,6 +18,14 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('user message', function(msg){
+    if(user_chats[msg.usr_id][1] == 0){
+      user_chats[msg.usr_id][0] = msg.usr;
+      user_chats[msg.usr_id].pop
+      var index = items.indexOf(msg.usr_id);
+      if (index !== -1) {
+          items[index] = msg.usr;
+        }
+    }
     user_chats[user_id].push(msg.usr + ": " + msg.msg);
     io.emit('user message back', msg);
     io.emit('chat', user_chats[msg.usr_id]);
@@ -38,10 +46,10 @@ io.on('connection', function(socket){
 
 io.on('connection', function(socket){
   user_id = socket.id;
-  user_chats[user_id] = [user_id];
+  user_chats[user_id] = [user_id,0];
   users_online.push(user_id);
   console.log(users_online);
-  io.emit('connection stablished', user_id);
+  io.emit('connection stablished', user_id
   io.emit('connected users', users_online);
 
   socket.on('disconnect', function(){

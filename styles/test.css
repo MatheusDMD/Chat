@@ -178,3 +178,70 @@ body{
     -webkit-transition: all .7s;
     transition: all .7s;
 }
+
+
+
+/* ------------------------------------------- */
+
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: 'Josefin Sans', sans-serif;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+	.intro p{
+		color: #fff;
+	}
+
+
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	#section0{
+		text-align:center;
+		align-content: center;
+	}
+	.section{
+		text-align:center;
+		padding-right: 5%;
+		padding-left: 5%;
+	}
+
+	/* Fixed header and footer.
+	* --------------------------------------- */
+	#header, #footer{
+		position:fixed;
+		width: 100%;
+		background: #333;
+		z-index:9;
+		height: 5em;
+	}
+
+	#header{
+		top:0px;
+	}
+	#footer{
+		bottom:0px;
+	}
+	.section{
+		background-size: cover;
+	}
+	.slide{
+		background-size: cover;
+	}
+
+	.fp-slidesNav.bottom{
+		bottom: 5em;
+	}
+
+	#section0{
+	background-image: url(images/title_main2.jpg);
+	}
+
+	.element{
+		font-size: 1em;
+	}
