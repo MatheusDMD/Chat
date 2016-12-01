@@ -21,6 +21,7 @@ io.on('connection', function(socket){
     if(user_chats[msg.usr_id][1] == 0){
       user_chats[msg.usr_id][0] = msg.usr;
       user_chats[msg.usr_id].pop();
+    }
     user_chats[user_id].push(msg.usr + ": " + msg.msg);
     io.emit('user message back', msg);
     io.emit('chat', user_chats[msg.usr_id]);
