@@ -18,6 +18,16 @@ Em paralelo trabalhei com Android como cliente do lado coorporativo da solução
 ###Layout
 Começei a implementação do projeto com rascunhos de possíveis layouts para o modelo de chat. Encontri uma template que me parecia cumprir o papel:
 
+Aplicação Android:
+
+![aplicação android]
+(https://github.com/MatheusDMD/Chat/blob/master/resources/images/screenshots/web_client.png?raw=true)
+
+Aplicação Web:
+
+![aplicação android]
+(https://github.com/MatheusDMD/Chat/blob/master/resources/images/screenshots/android_client.png?raw=true  | width=100)
+
 "Message Chat Widget" por "Dey-Dey" está disponível neste link: http://bootdey.com/snippets/view/messages-chat-widget
 
 Então adaptei a template para cumprir com os requisitos esperados. Atualizando-a para um formato de expansão de tela, como um dropdown a partir do exemplo da W3School. Disponível neste link:
