@@ -1,7 +1,7 @@
 {
   "name": "socket-chat-example",
   "version": "0.0.1",
-  "main": "server.js",
+  "main": "index.js",
   "description": "my first socket.io app",
   "scripts": {
     "start": "node index.js"
