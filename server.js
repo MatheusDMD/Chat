@@ -8,12 +8,14 @@ var users_online = [];
 var user_chats = {};
 app.set('port', process.env.PORT || 3000);
 
-app.use("/styles", express.static(__dirname + '/styles'));
-app.use("/js", express.static(__dirname + '/js'));
-app.use("/images", express.static(__dirname + '/images'));
+app.use("/resources/styles", express.static(__dirname + '/resources/styles'));
+app.use("/resources/js", express.static(__dirname + '/resources/js'));
+app.use("/model", express.static(__dirname + '/model'));
+app.use("/controller", express.static(__dirname + '/controller'));
+app.use("/resources/images", express.static(__dirname + '/resources/images'));
 //Chat
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/chat.html');
+  res.sendFile(__dirname + '/view/chat.html');
 });
 
 io.on('connection', function(socket){
