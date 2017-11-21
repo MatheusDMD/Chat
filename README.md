@@ -1,21 +1,21 @@
-#Chat Project TechWeb:
-###Disponível em:
+# Chat Project TechWeb:
+### Disponível em:
 https://marotzke-chat.herokuapp.com/
-###A proposta:
+### A proposta:
 A construção de um sistema de Chat online.
 
-###Caminho a seguir/Proposta da plataforma:
+### Caminho a seguir/Proposta da plataforma:
 Decidi construir uma ferramenta de chat com uma finalidade de negócios. Buscando exemplos de mercado encontrei a possibilidade de agir sobre a proposta de um chat empresarial. Esse modelo contempla conexões exclusivas com o provedor do site, estabelecendo contato direto com um atendente (Que pode evoluir para uma AI) sem o uso de grupos ou salas com multiplos usuários. Exemplos de mercado:
 * https://www.olark.com/
 * https://www.intercom.com/
 
-###Decisão das tecnologias utilizadas:
+### Decisão das tecnologias utilizadas:
 Decidi optar por Node.js devido à tendencias de mercado apontando como uma das plataformas mais modernas e otimizadas disponíveis. Seu paradigma orientado à eventos também foi grande atrativo, uma vez que poderia agreagar muito aos meus conhecimentos atuais.
 Nesse modelo, utilizei o módulo Socket.io que se mostrou muito robusto para propostas de conexão direta com atualização real-time. Muito utilizada em jogos e sistemas de messaging, o Socket.io foi de fácil implementação, permitindo enfoque em mais áreas do proejeto.
 
 Em paralelo trabalhei com Android como cliente do lado coorporativo da solução. Predominante no mercado de Smartphones Android foi uma solução viável para impletação ainda mais devido a experiencia que possuo com a plataforma.
 
-###Layout
+### Layout
 Começei a implementação do projeto com rascunhos de possíveis layouts para o modelo de chat. Encontri uma template que me parecia cumprir o papel:
 
 Aplicação Client:
